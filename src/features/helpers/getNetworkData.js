@@ -60,7 +60,7 @@ export const getNetworkStables = () => {
 export const getNetworkMulticall = () => {
   switch (window.REACT_APP_NETWORK_ID) {
     case 1285:
-      return '0x88D9621F1055C1D60f39b836CbDF46Ec667cDD52';
+      return '0x8ecf62Cb46Ba4913d6FbDd6E74da4A6A7c40582F';
     default:
       return '';
   }
