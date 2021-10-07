@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo } from 'react';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
 import Grid from '@material-ui/core/Grid';
 import { useTranslation } from 'react-i18next';
 import BigNumber from 'bignumber.js';
@@ -11,15 +10,14 @@ import PoolPaused from './PoolPaused/PoolPaused';
 import PoolTitle from './PoolTitle/PoolTitle';
 import LabeledStat from './LabeledStat/LabeledStat';
 import ApyStats from './ApyStats/ApyStats';
-import { usePoolApr } from '../../../stake/redux/subscription';
-import { PoolBoosts } from './PoolBoosts/PoolBoosts';
 import { getRetireReason } from './RetireReason/RetireReason';
+import clsx from 'clsx';
 
 const useStyles = makeStyles(styles);
 
 const PoolSummary = ({
+  className,
   pool,
-  launchpool,
   toggleCard,
   balanceSingle,
   sharesBalance,
@@ -27,12 +25,10 @@ const PoolSummary = ({
   fetchBalancesDone,
   fetchApysDone,
   fetchVaultsDataDone,
-  multipleLaunchpools = false,
 }) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
-  const launchpoolApr = usePoolApr(launchpool ? launchpool.id : null);
   const vaultStateTitle = useMemo(() => {
     let state =
       pool.status === 'eol'
@@ -41,10 +37,6 @@ const PoolSummary = ({
         ? t('Vault-DepositsPausedTitle')
         : null;
 
-    if (launchpool) {
-      state = t('Stake-BoostedBy', { name: launchpool.name });
-    }
-
     if (pool.experimental) {
       state = t('Vault-Experimental');
     }
@@ -52,13 +44,9 @@ const PoolSummary = ({
     return state === null ? (
       ''
     ) : (
-      <PoolPaused
-        message={t(state)}
-        isBoosted={!!launchpool}
-        isExperimental={!!pool.experimental}
-      />
+      <PoolPaused message={t(state)} isBoosted={false} isExperimental={!!pool.experimental} />
     );
-  }, [pool, launchpool, t]);
+  }, [pool, t]);
 
   const balanceUsd =
     balanceSingle > 0 && fetchVaultsDataDone ? formatTvl(balanceSingle, pool.oraclePrice) : '';
@@ -79,69 +67,62 @@ const PoolSummary = ({
   );
 
   return (
-    <AccordionSummary
-      className={
-        pool.status === 'eol'
-          ? classes.detailsRetired
-          : pool.depositsPaused
-          ? classes.detailsPaused
-          : classes.details
-      }
-      style={{ justifyContent: 'space-between' }}
+    <Grid
+      container
+      className={clsx(
+        classes.details,
+        {
+          [classes.detailsRetired]: pool.status === 'eol',
+          [classes.detailsPaused]: pool.depositsPaused,
+        },
+        className
+      )}
       onClick={onSummaryClick}
+      style={{ paddingTop: '20px' }}
     >
-      <Grid container alignItems="center" style={{ paddingTop: '20px' }}>
-        {vaultStateTitle}
-        <PoolBoosts poolName={pool.name} earnedTokenAddress={pool.earnedTokenAddress} />
-        <Grid item xs={12} className={`${classes.item} ${classes.itemTitle}`}>
-          <PoolTitle
-            name={pool.name}
-            logo={pool.logo}
-            poolId={pool.id}
-            description={t('Vault-Description', { vault: pool.tokenDescription })}
-            launchpool={launchpool}
-            addLiquidityUrl={pool.addLiquidityUrl}
-            removeLiquidityUrl={pool.removeLiquidityUrl}
-            buyTokenUrl={pool.buyTokenUrl}
-            assets={pool.assets}
-            multipleLaunchpools={multipleLaunchpools}
-          />
-        </Grid>
-        <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
-          <LabeledStat
-            value={formatDecimals(balanceSingle)}
-            subvalue={balanceUsd}
-            label={t('Vault-Wallet')}
-            isLoading={!fetchBalancesDone}
-            className={classes.itemInner}
-          />
-        </Grid>
-        <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
-          <LabeledStat
-            value={formatDecimals(deposited)}
-            subvalue={depositedUsd}
-            label={t('Vault-Deposited')}
-            isLoading={!fetchBalancesDone}
-            className={classes.itemInner}
-          />
-        </Grid>
-        <ApyStats
-          apy={apy}
-          launchpoolApr={launchpoolApr}
-          isLoading={!fetchApysDone}
-          itemClasses={`${classes.item} ${classes.itemStats}`}
-          itemInnerClasses={classes.itemInner}
+      {vaultStateTitle}
+      <Grid item xl={4} className={`${classes.item} ${classes.itemTitle}`}>
+        <PoolTitle
+          name={pool.name}
+          logo={pool.logo}
+          poolId={pool.id}
+          description={t('Vault-Description', { vault: pool.tokenDescription })}
+          addLiquidityUrl={pool.addLiquidityUrl}
+          removeLiquidityUrl={pool.removeLiquidityUrl}
+          buyTokenUrl={pool.buyTokenUrl}
+          assets={pool.assets}
         />
-        <Grid item xs={4} className={`${classes.item} ${classes.itemStats}`}>
-          <LabeledStat
-            value={formatTvl(pool.tvl, pool.oraclePrice)}
-            label={t('Vault-TVL')}
-            isLoading={!fetchVaultsDataDone}
-            className={classes.itemInner}
-          />
-        </Grid>
       </Grid>
-    </AccordionSummary>
+      <Grid item xl={2} className={`${classes.item} ${classes.itemBalances}`}>
+        <LabeledStat
+          value={formatDecimals(balanceSingle)}
+          subvalue={balanceUsd}
+          isLoading={!fetchBalancesDone}
+          className={classes.itemInner}
+        />
+      </Grid>
+      <Grid item xl={2} className={`${classes.item} ${classes.itemBalances}`}>
+        <LabeledStat
+          value={formatDecimals(deposited)}
+          subvalue={depositedUsd}
+          isLoading={!fetchBalancesDone}
+          className={classes.itemInner}
+        />
+      </Grid>
+      <ApyStats
+        apy={apy}
+        isLoading={!fetchApysDone}
+        itemClasses={`${classes.item} ${classes.itemStats}`}
+        itemInnerClasses={classes.itemInner}
+      />
+      <Grid item xl={2} className={`${classes.item} ${classes.itemStats}`}>
+        <LabeledStat
+          value={formatTvl(pool.tvl, pool.oraclePrice)}
+          isLoading={!fetchVaultsDataDone}
+          className={classes.itemInner}
+        />
+      </Grid>
+    </Grid>
   );
 };
 

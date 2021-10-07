@@ -2,16 +2,16 @@
 
 ## Overview
 
-Official frontend repo of [beefy.finance](https://app.beefy.finance). Multichain yield farming optimizer.
+Official frontend repo of [moofi.app](https://www.moofi.app). Moonriver yield farming optimizer.
 
 ## Env
 
 Required env vars:
 
 ```
-REACT_APP_NETWORK_ID = 56 // Network ID of BSC
+REACT_APP_NETWORK_ID = 1285 // Network ID of Moonriver
 ```
-
+s
 ## To Run
 
 ```
@@ -23,8 +23,8 @@ The app will be running at http://localhost:3000/
 
 ## Contribute
 
-Beefy.Finance exists thanks to its contributors. There are many ways you can participate and help build high quality software. Check out the [contribution guide](CONTRIBUTING.md)!
+Moofi.app exists thanks to its contributors. There are many ways you can participate and help build high quality software. Check out the [contribution guide](CONTRIBUTING.md)!
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE).

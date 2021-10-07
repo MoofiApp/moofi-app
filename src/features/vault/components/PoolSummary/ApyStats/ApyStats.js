@@ -93,7 +93,7 @@ const DailyBreakdownTooltip = memo(({ rates }) => {
   return <BreakdownTooltip rows={rows} />;
 });
 
-const LabeledStatWithTooltip = memo(({ tooltip, label, ...passthrough }) => {
+const LabeledStatWithTooltip = memo(({ tooltip, ...passthrough }) => {
   const classes = useStyles();
 
   return tooltip ? (
@@ -106,23 +106,14 @@ const LabeledStatWithTooltip = memo(({ tooltip, label, ...passthrough }) => {
       leaveTouchDelay={3000}
       classes={{ tooltip: classes.tooltip }}
     >
-      <LabeledStat
-        label={
-          <>
-            {label} <i className="fas fa-info-circle" />
-          </>
-        }
-        {...passthrough}
-      />
+      <LabeledStat {...passthrough} />
     </Tooltip>
   ) : (
-    <LabeledStat label={label} {...passthrough} />
+    <LabeledStat {...passthrough} />
   );
 });
 
-const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInnerClasses }) => {
-  const { t } = useTranslation();
-  const isBoosted = !!launchpoolApr;
+const ApyStats = ({ apy, isLoading = false, itemClasses, itemInnerClasses }) => {
   const values = {};
   let needsApyTooltip = false;
   let needsDailyTooltip = false;
@@ -148,15 +139,6 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
     values.totalDaily = yearlyToDaily(values.totalApy);
   }
 
-  if (isBoosted) {
-    needsApyTooltip = true;
-    needsDailyTooltip = true;
-    values.boostApr = launchpoolApr;
-    values.boostDaily = launchpoolApr / 365;
-    values.boostedTotalApy = values.boostApr ? values.totalApy + values.boostApr : 0;
-    values.boostedTotalDaily = values.boostDaily ? values.totalDaily + values.boostDaily : 0;
-  }
-
   const formatted = Object.fromEntries(
     Object.entries(values).map(([key, value]) => {
       const formattedValue = key.toLowerCase().includes('daily')
@@ -166,28 +148,33 @@ const ApyStats = ({ apy, launchpoolApr, isLoading = false, itemClasses, itemInne
     })
   );
 
+  const showApyTooltip = !isLoading && needsApyTooltip;
+  const showDailyTooltip = !isLoading && needsDailyTooltip;
+
   return (
     <>
-      <Grid item xs={4} className={itemClasses}>
+      <Grid item xl={1} className={itemClasses}>
         <LabeledStatWithTooltip
-          value={formatted.totalApy}
-          label={t('Vault-APY')}
-          tooltip={
-            !isLoading && needsApyTooltip ? <YearlyBreakdownTooltip rates={formatted} /> : null
+          value={
+            <>
+              {formatted.totalApy} {showApyTooltip && <i className="fas fa-info-circle" />}
+            </>
           }
-          boosted={isBoosted ? formatted.boostedTotalApy : ''}
+          tooltip={showApyTooltip ? <YearlyBreakdownTooltip rates={formatted} /> : null}
+          boosted={''}
           isLoading={isLoading}
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
       </Grid>
-      <Grid item xs={4} className={itemClasses}>
+      <Grid item xl={1} className={itemClasses}>
         <LabeledStatWithTooltip
-          value={formatted.totalDaily}
-          label={t('Vault-APYDaily')}
-          tooltip={
-            !isLoading && needsDailyTooltip ? <DailyBreakdownTooltip rates={formatted} /> : null
+          value={
+            <>
+              {formatted.totalDaily} {showDailyTooltip && <i className="fas fa-info-circle" />}
+            </>
           }
-          boosted={isBoosted ? formatted.boostedTotalDaily : ''}
+          tooltip={showDailyTooltip ? <DailyBreakdownTooltip rates={formatted} /> : null}
+          boosted={''}
           isLoading={isLoading}
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
