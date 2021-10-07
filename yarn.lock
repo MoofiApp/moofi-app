@@ -9788,6 +9788,11 @@ moment@^2.29.1:
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
+moofi-addressbook@^0.3.21:
+  version "0.3.21"
+  resolved "https://registry.yarnpkg.com/moofi-addressbook/-/moofi-addressbook-0.3.21.tgz#fc878a2e379a9c8e1d86e36f001e9d8ba560f0d8"
+  integrity sha512-9YSp7uEUL/2HuIsRw6INNr0mX4mgchVCNR/vr6TcfrtnFbwGMhlwf0Lm4wReGUqfZ4RStObHCs02BB1Ak0Pz5g==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"

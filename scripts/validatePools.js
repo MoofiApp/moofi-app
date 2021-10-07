@@ -1,6 +1,6 @@
 // To run: yarn validate
 import { MultiCall } from 'eth-multicall';
-import { addressBook } from 'blockchain-addressbook';
+import { addressBook } from 'moofi-addressbook';
 import Web3 from 'web3';
 
 import { isEmpty } from '../src/features/helpers/utils.js';
@@ -9,15 +9,14 @@ import { moonriverPools } from '../src/features/configure/vault/moonriver_pools.
 import { vaultABI, strategyABI } from '../src/features/configure/abi.js';
 
 const chainPools = {
-  movr: moonriverPools,
+  moonriver: moonriverPools,
 };
 
 const chainRpcs = {
-  movr: process.env.MOVR_RPC || 'https://moonriver.api.onfinality.io/public',
+  moonriver: process.env.MOVR_RPC || 'https://moonriver.api.onfinality.io/public',
 };
 
-const overrides = {
-};
+const overrides = {};
 
 const validatePools = async () => {
   const addressFields = ['tokenAddress', 'earnedTokenAddress', 'earnContractAddress'];
@@ -45,7 +44,7 @@ const validatePools = async () => {
     const web3 = new Web3(chainRpcs[chain]);
     pools = await populateStrategyAddrs(chain, pools, web3);
     pools = await populateKeepers(chain, pools, web3);
-    pools = await populateBeefyFeeRecipients(chain, pools, web3);
+    pools = await populateMofiFeeRecipients(chain, pools, web3);
     pools = await populateOwners(chain, pools, web3);
 
     pools = override(pools);
@@ -75,6 +74,7 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool earnedTokenAddress not same as earnContractAddress: ${pool.earnedTokenAddress} != ${pool.earnContractAddress}`
         );
+        console.log('DUPA5');
         exitCode = 1;
       }
 
@@ -82,6 +82,7 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool tokenDescription missing - required for UI: vault card`
         );
+        console.log('DUPA4');
         exitCode = 1;
       }
 
@@ -89,6 +90,7 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool platform missing - required for UI: filter (Use 'Other' if necessary)`
         );
+        console.log('DUPA3');
         exitCode = 1;
       } else {
         platformCounts[pool.platform] = platformCounts.hasOwnProperty(pool.platform)
@@ -104,6 +106,7 @@ const validatePools = async () => {
               maybeValid ? `\n\t${field}: '${maybeValid}',` : 'it is invalid'
             }`
           );
+          console.log('DUPA2');
           exitCode = 1;
         }
       });
@@ -117,15 +120,16 @@ const validatePools = async () => {
       uniqueEarnedTokenAddress.add(pool.earnedTokenAddress);
       uniqueOracleId.add(pool.oracleId);
 
-      const { keeper, strategyOwner, vaultOwner, beefyFeeRecipient } =
-        addressBook[chain].platforms.beefyfinance;
+      const { keeper, strategyOwner, vaultOwner, mofiFeeRecipient } =
+        addressBook[chain].platforms.mofi;
 
       updates = isKeeperCorrect(pool, chain, keeper, updates);
       updates = isStratOwnerCorrect(pool, chain, strategyOwner, updates);
       updates = isVaultOwnerCorrect(pool, chain, vaultOwner, updates);
-      updates = isBeefyFeeRecipientCorrect(pool, chain, beefyFeeRecipient, updates);
+      updates = isMofiFeeRecipientCorrect(pool, chain, mofiFeeRecipient, updates);
     });
     if (!isEmpty(updates)) {
+      console.log('DUPA1');
       exitCode = 1;
     }
 
@@ -201,26 +205,26 @@ const isVaultOwnerCorrect = (pool, chain, owner, updates) => {
   return updates;
 };
 
-const isBeefyFeeRecipientCorrect = (pool, chain, recipient, updates) => {
+const isMofiFeeRecipientCorrect = (pool, chain, recipient, updates) => {
   if (
     pool.status === 'active' &&
-    pool.beefyFeeRecipient !== undefined &&
-    pool.beefyFeeRecipient !== recipient
+    pool.mofiFeeRecipient !== undefined &&
+    pool.mofiFeeRecipient !== recipient
   ) {
     console.log(
-      `Pool ${pool.id} should update beefy fee recipient. From: ${pool.beefyFeeRecipient} To: ${recipient}`
+      `Pool ${pool.id} should update mofi fee recipient. From: ${pool.mofiFeeRecipient} To: ${recipient}`
     );
 
-    // TODO enable after updating Harmony beefyFeeRecipient
+    // TODO enable after updating Harmony mofiFeeRecipient
     if (chain === 'one') return updates;
 
-    if (!('beefyFeeRecipient' in updates)) updates['beefyFeeRecipient'] = {};
-    if (!(chain in updates.beefyFeeRecipient)) updates.beefyFeeRecipient[chain] = {};
+    if (!('mofiFeeRecipient' in updates)) updates['mofiFeeRecipient'] = {};
+    if (!(chain in updates.mofiFeeRecipient)) updates.mofiFeeRecipient[chain] = {};
 
-    if (pool.stratOwner in updates.beefyFeeRecipient[chain]) {
-      updates.beefyFeeRecipient[chain][pool.stratOwner].push(pool.strategy);
+    if (pool.stratOwner in updates.mofiFeeRecipient[chain]) {
+      updates.mofiFeeRecipient[chain][pool.stratOwner].push(pool.strategy);
     } else {
-      updates.beefyFeeRecipient[chain][pool.stratOwner] = [pool.strategy];
+      updates.mofiFeeRecipient[chain][pool.stratOwner] = [pool.strategy];
     }
   }
 
@@ -230,7 +234,7 @@ const isBeefyFeeRecipientCorrect = (pool, chain, recipient, updates) => {
 // Helpers to populate required addresses.
 
 const populateStrategyAddrs = async (chain, pools, web3) => {
-  const multicall = new MultiCall(web3, addressBook[chain].platforms.beefyfinance.multicall);
+  const multicall = new MultiCall(web3, addressBook[chain].platforms.mofi.multicall);
 
   const calls = pools.map(pool => {
     const vaultContract = new web3.eth.Contract(vaultABI, pool.earnContractAddress);
@@ -247,7 +251,7 @@ const populateStrategyAddrs = async (chain, pools, web3) => {
 };
 
 const populateKeepers = async (chain, pools, web3) => {
-  const multicall = new MultiCall(web3, addressBook[chain].platforms.beefyfinance.multicall);
+  const multicall = new MultiCall(web3, addressBook[chain].platforms.mofi.multicall);
 
   const calls = pools.map(pool => {
     const stratContract = new web3.eth.Contract(strategyABI, pool.strategy);
@@ -263,25 +267,25 @@ const populateKeepers = async (chain, pools, web3) => {
   });
 };
 
-const populateBeefyFeeRecipients = async (chain, pools, web3) => {
-  const multicall = new MultiCall(web3, addressBook[chain].platforms.beefyfinance.multicall);
+const populateMofiFeeRecipients = async (chain, pools, web3) => {
+  const multicall = new MultiCall(web3, addressBook[chain].platforms.mofi.multicall);
 
   const calls = pools.map(pool => {
     const stratContract = new web3.eth.Contract(strategyABI, pool.strategy);
     return {
-      beefyFeeRecipient: stratContract.methods.beefyFeeRecipient(),
+      mofiFeeRecipient: stratContract.methods.mofiFeeRecipient(),
     };
   });
 
   const [results] = await multicall.all([calls]);
 
   return pools.map((pool, i) => {
-    return { ...pool, beefyFeeRecipient: results[i].beefyFeeRecipient };
+    return { ...pool, mofiFeeRecipient: results[i].mofiFeeRecipient };
   });
 };
 
 const populateOwners = async (chain, pools, web3) => {
-  const multicall = new MultiCall(web3, addressBook[chain].platforms.beefyfinance.multicall);
+  const multicall = new MultiCall(web3, addressBook[chain].platforms.mofi.multicall);
 
   const vaultCalls = pools.map(pool => {
     const vaultContract = new web3.eth.Contract(vaultABI, pool.earnContractAddress);
