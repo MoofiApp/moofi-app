@@ -11,10 +11,6 @@ const priceCache = {
   lastUpdated: undefined,
 };
 
-function isCached(id) {
-  return priceCache.cache.has(id);
-}
-
 function getCachedPrice(id) {
   return priceCache.cache.get(id);
 }
@@ -34,7 +30,7 @@ const fetchTokens = async () => {
   const cacheBuster = getApiCacheBuster();
 
   try {
-    const response = await axios.get(`https://api.beefy.finance/prices?_=${cacheBuster}`);
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/prices?_=${cacheBuster}`);
     return response.data;
   } catch (err) {
     console.error(err);
@@ -46,7 +42,7 @@ const fetchLPs = async () => {
   const cacheBuster = getApiCacheBuster();
 
   try {
-    const response = await axios.get(`https://api.beefy.finance/lps?_=${cacheBuster}`);
+    const response = await axios.get(`${process.env.REACT_APP_API_URL}/lps?_=${cacheBuster}`);
     return response.data;
   } catch (err) {
     console.error(err);

@@ -1,5 +1,4 @@
 import { getNetworkPools, launchpools } from '../../helpers/getNetworkData';
-import { getEligibleZap } from 'features/zap/zapUniswapV2';
 
 const tokens = {};
 const pools = getNetworkPools();
@@ -17,11 +16,13 @@ pools.forEach(
       earnedTokenAddress,
       withdrawalFee,
       depositFee,
+      platformFee,
     },
     i
   ) => {
-    if (!withdrawalFee) pools[i].withdrawalFee = '0.1%';
+    if (!withdrawalFee) pools[i].withdrawalFee = '0%';
     if (!depositFee) pools[i].depositFee = '0%';
+    if (!platformFee) pools[i].platformFee = '2%';
 
     tokens[token] = {
       symbol: token,
@@ -42,14 +43,6 @@ pools.forEach(
         [earnContractAddress]: 0,
       },
     };
-
-    const zap = getEligibleZap(pools[i]);
-    if (zap) {
-      tokens[token].allowance[zap.zapAddress] = tokenAddress ? 0 : Infinity;
-      tokens[earnedToken].allowance[zap.zapAddress] = 0;
-      pools[i]['zap'] = zap;
-      zapMap[pools[i].id] = zap;
-    }
   }
 );
 
