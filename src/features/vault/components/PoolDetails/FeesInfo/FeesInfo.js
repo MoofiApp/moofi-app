@@ -11,7 +11,7 @@ const FeesInfo = ({ pool }) => {
   const { t } = useTranslation();
   const classes = useStyles();
   return (
-    <Grid container item xs={12} xl={2} alignContent="center" className={classes.container}>
+    <Grid container item xs={12} md={2} alignContent="center" className={classes.container}>
       <Grid item xs={12}>
         <Grid item xs={12}>
           <Typography variant="h6" color="primary">

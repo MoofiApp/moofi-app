@@ -2,23 +2,11 @@ import React, { memo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
-import { formatApy } from '../../../../helpers/format';
-import { isNaN } from '../../../../helpers/bignumber';
-import LabeledStat from '../LabeledStat/LabeledStat';
-import { Fade, Tooltip } from '@material-ui/core';
+import { getApyStats } from '../../../../helpers/utils';
 import { useTranslation } from 'react-i18next';
+import LabeledStatWithTooltip from '../LabeledStatWithTooltip/LabeledStatWithTooltip';
 
 const useStyles = makeStyles(styles);
-
-const yearlyToDaily = apy => {
-  const g = Math.pow(10, Math.log10(apy + 1) / 365) - 1;
-
-  if (isNaN(g)) {
-    return 0;
-  }
-
-  return g;
-};
 
 const BreakdownTooltip = memo(({ rows }) => {
   const classes = useStyles();
@@ -93,67 +81,15 @@ const DailyBreakdownTooltip = memo(({ rates }) => {
   return <BreakdownTooltip rows={rows} />;
 });
 
-const LabeledStatWithTooltip = memo(({ tooltip, ...passthrough }) => {
-  const classes = useStyles();
-
-  return tooltip ? (
-    <Tooltip
-      arrow
-      TransitionComponent={Fade}
-      title={tooltip}
-      placement="bottom"
-      enterTouchDelay={0}
-      leaveTouchDelay={3000}
-      classes={{ tooltip: classes.tooltip }}
-    >
-      <LabeledStat {...passthrough} />
-    </Tooltip>
-  ) : (
-    <LabeledStat {...passthrough} />
-  );
-});
-
 const ApyStats = ({ apy, isLoading = false, itemClasses, itemInnerClasses }) => {
-  const values = {};
-  let needsApyTooltip = false;
-  let needsDailyTooltip = false;
-
-  values.totalApy = apy.totalApy;
-
-  if ('vaultApr' in apy && apy.vaultApr) {
-    needsApyTooltip = true;
-    values.vaultApr = apy.vaultApr;
-    values.vaultDaily = apy.vaultApr / 365;
-  }
-
-  if ('tradingApr' in apy && apy.tradingApr) {
-    needsApyTooltip = true;
-    needsDailyTooltip = true;
-    values.tradingApr = apy.tradingApr;
-    values.tradingDaily = apy.tradingApr / 365;
-  }
-
-  if ('vaultAprDaily' in values || 'tradingAprDaily' in values) {
-    values.totalDaily = (values.vaultDaily || 0) + (values.tradingDaily || 0);
-  } else {
-    values.totalDaily = yearlyToDaily(values.totalApy);
-  }
-
-  const formatted = Object.fromEntries(
-    Object.entries(values).map(([key, value]) => {
-      const formattedValue = key.toLowerCase().includes('daily')
-        ? formatApy(value, 4)
-        : formatApy(value);
-      return [key, formattedValue];
-    })
-  );
+  const { formatted, needsApyTooltip, needsDailyTooltip } = getApyStats(apy);
 
   const showApyTooltip = !isLoading && needsApyTooltip;
   const showDailyTooltip = !isLoading && needsDailyTooltip;
 
   return (
     <>
-      <Grid item xl={1} className={itemClasses}>
+      <Grid item md={1} className={itemClasses}>
         <LabeledStatWithTooltip
           value={
             <>
@@ -166,7 +102,7 @@ const ApyStats = ({ apy, isLoading = false, itemClasses, itemInnerClasses }) => 
           className={`tooltip-toggle ${itemInnerClasses}`}
         />
       </Grid>
-      <Grid item xl={1} className={itemClasses}>
+      <Grid item md={1} className={itemClasses}>
         <LabeledStatWithTooltip
           value={
             <>

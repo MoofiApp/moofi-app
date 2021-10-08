@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import Grid from '@material-ui/core/Grid';
+import Hidden from '@material-ui/core/Hidden';
 import { useTranslation } from 'react-i18next';
 import BigNumber from 'bignumber.js';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +13,8 @@ import LabeledStat from './LabeledStat/LabeledStat';
 import ApyStats from './ApyStats/ApyStats';
 import { getRetireReason } from './RetireReason/RetireReason';
 import clsx from 'clsx';
+import { formatDecimals } from 'features/helpers/utils';
+import SmallPoolValues from './SmallPoolValues/SmallPoolValues';
 
 const useStyles = makeStyles(styles);
 
@@ -81,7 +84,7 @@ const PoolSummary = ({
       style={{ paddingTop: '20px' }}
     >
       {vaultStateTitle}
-      <Grid item xl={4} className={`${classes.item} ${classes.itemTitle}`}>
+      <Grid item xs={6} md={4} className={`${classes.item} ${classes.itemTitle}`}>
         <PoolTitle
           name={pool.name}
           logo={pool.logo}
@@ -93,41 +96,54 @@ const PoolSummary = ({
           assets={pool.assets}
         />
       </Grid>
-      <Grid item xl={2} className={`${classes.item} ${classes.itemBalances}`}>
-        <LabeledStat
-          value={formatDecimals(balanceSingle)}
-          subvalue={balanceUsd}
-          isLoading={!fetchBalancesDone}
-          className={classes.itemInner}
+      <Hidden smDown>
+        <Grid item md={2} className={`${classes.item} ${classes.itemBalances}`}>
+          <LabeledStat
+            value={formatDecimals(balanceSingle)}
+            subvalue={balanceUsd}
+            isLoading={!fetchBalancesDone}
+            className={classes.itemInner}
+          />
+        </Grid>
+        <Grid item md={2} className={`${classes.item} ${classes.itemBalances}`}>
+          <LabeledStat
+            value={formatDecimals(deposited)}
+            subvalue={depositedUsd}
+            isLoading={!fetchBalancesDone}
+            className={classes.itemInner}
+          />
+        </Grid>
+        <ApyStats
+          apy={apy}
+          isLoading={!fetchApysDone}
+          itemClasses={`${classes.item} ${classes.itemStats}`}
+          itemInnerClasses={classes.itemInner}
         />
-      </Grid>
-      <Grid item xl={2} className={`${classes.item} ${classes.itemBalances}`}>
-        <LabeledStat
-          value={formatDecimals(deposited)}
-          subvalue={depositedUsd}
-          isLoading={!fetchBalancesDone}
-          className={classes.itemInner}
-        />
-      </Grid>
-      <ApyStats
-        apy={apy}
-        isLoading={!fetchApysDone}
-        itemClasses={`${classes.item} ${classes.itemStats}`}
-        itemInnerClasses={classes.itemInner}
-      />
-      <Grid item xl={2} className={`${classes.item} ${classes.itemStats}`}>
-        <LabeledStat
-          value={formatTvl(pool.tvl, pool.oraclePrice)}
-          isLoading={!fetchVaultsDataDone}
-          className={classes.itemInner}
-        />
-      </Grid>
+        <Grid item md={2} className={`${classes.item} ${classes.itemStats}`}>
+          <LabeledStat
+            value={formatTvl(pool.tvl, pool.oraclePrice)}
+            isLoading={!fetchVaultsDataDone}
+            className={classes.itemInner}
+          />
+        </Grid>
+      </Hidden>
+      <Hidden mdUp>
+        <Grid item xs={6}>
+          <SmallPoolValues
+            pool={pool}
+            apy={apy}
+            balanceSingle={balanceSingle}
+            balanceUsd={balanceUsd}
+            deposited={deposited}
+            depositedUsd={depositedUsd}
+            fetchBalancesDone={fetchBalancesDone}
+            fetchVaultsDataDone={fetchVaultsDataDone}
+            fetchApysDone={fetchApysDone}
+          />
+        </Grid>
+      </Hidden>
     </Grid>
   );
-};
-
-const formatDecimals = number => {
-  return number >= 10 ? number.toFixed(4) : number.isEqualTo(0) ? 0 : number.toFixed(8);
 };
 
 export default PoolSummary;
