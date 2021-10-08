@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import styles from './styles';
-import { getApyStats } from '../../../../helpers/utils';
+import getApyStats from './getApyStats';
 import { useTranslation } from 'react-i18next';
 import LabeledStatWithTooltip from '../LabeledStatWithTooltip/LabeledStatWithTooltip';
 

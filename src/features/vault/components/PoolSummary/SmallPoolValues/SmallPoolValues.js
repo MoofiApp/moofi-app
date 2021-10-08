@@ -3,10 +3,11 @@ import Grid from '@material-ui/core/Grid';
 import styles from './styles';
 import LabeledStat from '../LabeledStat/LabeledStat';
 import { formatTvl } from 'features/helpers/format';
-import { formatDecimals, getApyStats } from 'features/helpers/utils';
+import { formatDecimals } from 'features/helpers/utils';
 import LabeledStatWithTooltip from '../LabeledStatWithTooltip/LabeledStatWithTooltip';
 import { makeStyles, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
+import getApyStats from '../ApyStats/getApyStats';
 
 const useStyles = makeStyles(styles);
 
