@@ -74,6 +74,7 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool earnedTokenAddress not same as earnContractAddress: ${pool.earnedTokenAddress} != ${pool.earnContractAddress}`
         );
+        console.log('DUPA5');
         exitCode = 1;
       }
 
@@ -81,6 +82,7 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool tokenDescription missing - required for UI: vault card`
         );
+        console.log('DUPA4');
         exitCode = 1;
       }
 
@@ -88,6 +90,7 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool platform missing - required for UI: filter (Use 'Other' if necessary)`
         );
+        console.log('DUPA3');
         exitCode = 1;
       } else {
         platformCounts[pool.platform] = platformCounts.hasOwnProperty(pool.platform)
@@ -103,6 +106,7 @@ const validatePools = async () => {
               maybeValid ? `\n\t${field}: '${maybeValid}',` : 'it is invalid'
             }`
           );
+          console.log('DUPA2');
           exitCode = 1;
         }
       });
@@ -125,6 +129,7 @@ const validatePools = async () => {
       updates = isMofiFeeRecipientCorrect(pool, chain, mofiFeeRecipient, updates);
     });
     if (!isEmpty(updates)) {
+      console.log('DUPA1');
       exitCode = 1;
     }
 
