@@ -2,10 +2,10 @@ const styles = theme => ({
   root: {
     display: 'flex',
     flexDirection: 'row',
-    paddingTop: 12,
-    paddingBottom: 12,
+    alignItems: 'center',
     paddingLeft: 16,
     paddingRight: 16,
+    height: 44,
   },
   column: {
     display: 'flex',

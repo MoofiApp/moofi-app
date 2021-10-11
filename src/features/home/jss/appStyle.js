@@ -11,10 +11,13 @@ const appStyle = theme => ({
     minHeight: '100vh',
     position: 'relative',
     overflow: 'hidden',
+    display: 'flex',
+    flexDirection: 'column',
   },
   container: {
     ...container,
     zIndex: 1,
+    flex: 1,
   },
   children: {
     minHeight: '77vh',
