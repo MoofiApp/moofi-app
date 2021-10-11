@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <div className={classes.root}>
       <a
-        href="https://docs.beefy.finance"
+        href="https://docs.moofi.app"
         target="_blank"
         rel="noopener noreferrer"
         className={classes.textLink}
@@ -21,7 +21,7 @@ const Footer = () => {
       </a>
       <Box flex={1} />
       <a
-        href="https://twitter.com/beefyfinance"
+        href="https://twitter.com/AppMoofi"
         target="_blank"
         rel="noopener noreferrer"
         className={classes.link}
@@ -29,20 +29,12 @@ const Footer = () => {
         <i className={`fab fa-twitter ${classes.linkIcon}`}></i>
       </a>
       <a
-        href="https://t.me/beefyfinance"
+        href="https://t.me/moofiappchat"
         target="_blank"
         rel="noopener noreferrer"
         className={classes.link}
       >
         <i className={`fab fa-telegram ${classes.linkIcon}`}></i>
-      </a>
-      <a
-        href="https://discord.gg/yq8wfHd"
-        target="_blank"
-        rel="noopener noreferrer"
-        className={classes.link}
-      >
-        <i className={`fab fa-discord ${classes.linkIcon}`}></i>
       </a>
     </div>
   );
