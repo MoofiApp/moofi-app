@@ -1,4 +1,4 @@
-# Beefy Finance (\$BIFI)
+# MOOFI Finance (\$MOFI)
 
 ## Overview
 

@@ -3,8 +3,6 @@ import { getNetworkPools, launchpools } from '../../helpers/getNetworkData';
 const tokens = {};
 const pools = getNetworkPools();
 
-const zapMap = {};
-
 pools.forEach(
   (
     {
@@ -87,8 +85,5 @@ const initialState = {
     })
   ),
 };
-
-const allZaps = Object.keys(zapMap);
-console.log('Total number of zaps: ' + allZaps.length.toString());
 
 export default initialState;

@@ -5,7 +5,6 @@ export {
   strategyABI,
   multicallABI,
   govPoolABI,
-  beefyUniV2ZapABI,
   uniswapV2PairABI,
   uniswapV2RouterABI,
 } from './abi';
