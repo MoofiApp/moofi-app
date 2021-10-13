@@ -3,9 +3,15 @@ import { primaryColor } from 'assets/jss/material-kit-pro-react.js';
 const styles = theme => ({
   sliderDetailContainer: {
     padding: '24px 30px',
+    [theme.breakpoints.down('md')]: {
+      padding: '12px 12px',
+    },
   },
   content: {
     padding: '16px 24px',
+    [theme.breakpoints.down('md')]: {
+      padding: '8px 16px',
+    },
     border: `1px solid ${theme.palette.background.secondary}`,
     borderRadius: 8,
   },

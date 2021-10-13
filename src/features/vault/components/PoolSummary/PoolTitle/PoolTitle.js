@@ -53,7 +53,7 @@ const PoolTitle = ({
   }
 
   return (
-    <Grid className={classes.container} container wrap="nowrap">
+    <Grid className={classes.container} container wrap="nowrap" alignItems="center">
       {avatar}
       <div className={classes.texts}>
         <Typography variant="h6" color="primary">

@@ -32,23 +32,21 @@ const SmallPoolValues = ({
     <Grid container className={classes.container}>
       <Grid item xs={12} className={classes.content}>
         <Typography variant="body2" color="primary">
-          {t('Header-Ballance')}
+          {t('Header-Ballance-Small')}
         </Typography>
         <LabeledStat
           className={classes.value}
           value={formatDecimals(balanceSingle)}
-          subvalue={balanceUsd}
           isLoading={!fetchBalancesDone}
         />
       </Grid>
       <Grid item xs={12} className={classes.content}>
         <Typography variant="body2" color="primary">
-          {t('Header-Deposited')}
+          {t('Header-Deposited-Small')}
         </Typography>
         <LabeledStat
           className={classes.value}
           value={formatDecimals(deposited)}
-          subvalue={depositedUsd}
           isLoading={!fetchBalancesDone}
         />
       </Grid>

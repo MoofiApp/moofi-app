@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import Hidden from '@material-ui/core/Hidden';
 import { usePoolsTvl, useUserTvl } from 'features/vault/hooks/usePoolsTvl';
 import { useFetchBalances, useFetchVaultsData } from 'features/vault/redux/hooks';
 import React from 'react';
@@ -21,14 +22,23 @@ export default function TVLInfo() {
 
   return (
     <div className={classes.container}>
-      <span className={classes.title}>TVL </span>
+      <Hidden xsDown>
+        <span className={classes.title}>TVL</span>
+      </Hidden>
       {fetchVaultsDataDone && poolsTvl > 0 ? (
         <span className={classes.value}>{formatGlobalTvl(poolsTvl)}</span>
       ) : (
         <TVLLoader className={classes.titleLoader} />
       )}
 
-      <span className={classes.title}>{t('Vault-Deposited')} </span>
+      <Hidden smUp>{'|'}</Hidden>
+
+      <Hidden xsDown>
+        <span className={classes.title}>
+          <Hidden smDown>{t('Vault-Deposited')}</Hidden>
+          <Hidden mdUp>{t('Vault-Deposited-Small')}</Hidden>{' '}
+        </span>
+      </Hidden>
       {fetchVaultsDataDone && fetchBalancesDone ? (
         <span className={classes.value}>{formatGlobalTvl(userTvl)}</span>
       ) : (

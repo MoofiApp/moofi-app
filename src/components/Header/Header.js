@@ -6,6 +6,7 @@ import Box from '@material-ui/core/Box';
 import styles from './styles';
 import TVLInfo from 'components/TVLInfo/TVLInfo';
 import { Divider, Typography } from '@material-ui/core';
+import AddressButton from '../AddressButton/AddressButton';
 
 const useStyles = makeStyles(styles);
 
@@ -20,13 +21,9 @@ const Header = ({ links, isNightMode, setNightMode }) => {
           <Typography variant="body2" color="textSecondary" className={classes.beta}>
             Beta
           </Typography>
-          {/* <Divider orientation="vertical" flexItem /> */}
-          {/* <div className={classes.middleNav}>
-          {renderLink('vaults', t('vaults'), 'piggy-bank', classes)}
-        </div> */}
           <Box flex={1} />
           <TVLInfo />
-          <div className={classes.collapse}>{links}</div>
+          <AddressButton />
         </Toolbar>
       </AppBar>
       <Divider />

@@ -21,7 +21,7 @@ const styles = theme => ({
     borderRadius: '3px',
     padding: '0.4rem 0',
     color: grayColor[15],
-    width: 'calc(100% - 20px)',
+    width: '100%',
     backgroundColor: whiteColor,
     boxShadow:
       '0 4px 18px 0px rgba(' +

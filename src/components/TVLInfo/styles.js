@@ -6,13 +6,13 @@ const styles = theme => ({
   },
   title: {},
   value: {
-    marginLeft: 8,
-    marginRight: 8,
+    marginLeft: 6,
+    marginRight: 6,
     fontWeight: 600,
   },
   titleLoader: {
-    marginRight: 8,
-    marginLeft: 8,
+    marginRight: 6,
+    marginLeft: 6,
   },
 });
 

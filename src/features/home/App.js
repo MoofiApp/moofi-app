@@ -1,7 +1,6 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { makeStyles, ThemeProvider, StylesProvider } from '@material-ui/core/styles';
 import Header from 'components/Header/Header';
-import HeaderLinks from 'components/HeaderLinks/HeaderLinks';
 import { useTranslation } from 'react-i18next';
 import { SnackbarProvider } from 'notistack';
 import { Notifier } from 'features/common';
@@ -32,7 +31,7 @@ const ScrollToTop = memo(function () {
 
 export default function App({ children }) {
   const { t } = useTranslation();
-  const { connectWallet, web3, address, networkId, connected } = useConnectWallet();
+  const { connectWallet, web3, address, networkId } = useConnectWallet();
   const { disconnectWallet } = useDisconnectWallet();
   const [web3Modal, setModal] = useState(null);
 
@@ -67,20 +66,7 @@ export default function App({ children }) {
         <SnackbarProvider>
           <ScrollToTop />
           <div className={classes.page}>
-            <Header
-              links={
-                <HeaderLinks
-                  address={address}
-                  connected={connected}
-                  connectWallet={connectWalletCallback}
-                  disconnectWallet={disconnectWalletCallback}
-                  isNightMode={isNightMode}
-                  setNightMode={() => setNightMode(!isNightMode)}
-                />
-              }
-              isNightMode={isNightMode}
-              setNightMode={() => setNightMode(!isNightMode)}
-            />
+            <Header isNightMode={isNightMode} setNightMode={() => setNightMode(!isNightMode)} />
             <div className={classes.container}>
               <div className={classes.children}>
                 <NetworkConnectNotice

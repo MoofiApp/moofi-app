@@ -4,7 +4,7 @@ const styles = theme => ({
     paddingRight: 8,
   },
   texts: {
-    marginLeft: '20px',
+    marginLeft: '14px',
   },
   url: {
     color: theme.palette.text.primary,
