@@ -2,7 +2,7 @@ export const moonriverPools = [
   {
     id: 'moonfarm-dai-usdc',
     name: 'DAI-USDC LP',
-    token: 'DAI-USDC LP',
+    token: 'DAI-USDC MLP',
     tokenDescription: 'Moonfarm',
     tokenAddress: '0x07866497aAF2E8B201300759720C5Ac873DbF0e7',
     tokenDecimals: 18,
@@ -27,7 +27,7 @@ export const moonriverPools = [
   {
     id: 'moonfarm-busd-usdc',
     name: 'BUSD-USDC LP',
-    token: 'BUSD-USDC LP',
+    token: 'BUSD-USDC MLP',
     tokenDescription: 'Moonfarm',
     tokenAddress: '0x7Fae055c7836D135f0E755395b0179D4d5Af3E4D',
     tokenDecimals: 18,
@@ -53,7 +53,7 @@ export const moonriverPools = [
   {
     id: 'moonfarm-usdt-usdc',
     name: 'USDT-USDC LP',
-    token: 'USDT-USDC LP',
+    token: 'USDT-USDC MLP',
     tokenDescription: 'Moonfarm',
     tokenAddress: '0x9EC8b8818fd07A24481f5635D5283B2aB85dbB5a',
     tokenDecimals: 18,
@@ -79,7 +79,7 @@ export const moonriverPools = [
   {
     id: 'moonfarm-eth-usdc',
     name: 'ETH-USDC LP',
-    token: 'ETH-USDC LP',
+    token: 'ETH-USDC MLP',
     tokenDescription: 'Moonfarm',
     tokenAddress: '0xDb6DD7EdaD4C5ADe2C1CD7E53DfCEbc0f50c7377',
     tokenDecimals: 18,
@@ -105,7 +105,7 @@ export const moonriverPools = [
   {
     id: 'moonfarm-bnb-busd',
     name: 'BNB-BUSD LP',
-    token: 'BNB-BUSD LP',
+    token: 'BNB-BUSD MLP',
     tokenDescription: 'Moonfarm',
     tokenAddress: '0xe2293bA6fc806eB0903c4954218A436bec591Bb5',
     tokenDecimals: 18,
@@ -131,7 +131,7 @@ export const moonriverPools = [
   {
     id: 'moonfarm-wmovr-mswap',
     name: 'WMOVR-mSWAP LP',
-    token: 'WMOVR-mSWAP LP',
+    token: 'WMOVR-mSWAP MLP',
     tokenDescription: 'Moonfarm',
     tokenAddress: '0x66fFF9B5072CbdFb4bCe50563eC13B237d6A4972',
     tokenDecimals: 18,
@@ -157,7 +157,7 @@ export const moonriverPools = [
   {
     id: 'moonfarm-wmovr-usdc',
     name: 'WMOVR-USDC LP',
-    token: 'WMOVR-USDC LP',
+    token: 'WMOVR-USDC MLP',
     tokenDescription: 'Moonfarm',
     tokenAddress: '0x74888A02891586EBecCc7B04A0F7a9b5098Daf05',
     tokenDecimals: 18,
@@ -183,7 +183,7 @@ export const moonriverPools = [
   {
     id: 'moonfarm-wmovr-moon',
     name: 'WMOVR-MOON LP',
-    token: 'WMOVR-MOON LP',
+    token: 'WMOVR-MOON MLP',
     tokenDescription: 'Moonfarm',
     tokenAddress: '0xf18433BbE972d8F1B2E908e3Eb6C0234C9b24E7b',
     tokenDecimals: 18,
@@ -209,7 +209,7 @@ export const moonriverPools = [
   {
     id: 'solar-wmovr-usdc',
     name: 'WMOVR-USDC LP',
-    token: 'WMOVR-USDC LP',
+    token: 'WMOVR-USDC SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0xe537f70a8b62204832B8Ba91940B77d3f79AEb81',
     tokenDecimals: 18,
@@ -235,7 +235,7 @@ export const moonriverPools = [
   {
     id: 'solar-solar-usdc',
     name: 'SOLAR-USDC LP',
-    token: 'SOLAR-USDC LP',
+    token: 'SOLAR-USDC SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0xdb66BE1005f5Fe1d2f486E75cE3C50B52535F886',
     tokenDecimals: 18,
@@ -261,7 +261,7 @@ export const moonriverPools = [
   {
     id: 'solar-dai-usdc',
     name: 'DAI-USDC LP',
-    token: 'DAI-USDC LP',
+    token: 'DAI-USDC SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0xFE1b71BDAEE495dCA331D28F5779E87bd32FbE53',
     tokenDecimals: 18,
@@ -287,7 +287,7 @@ export const moonriverPools = [
   {
     id: 'solar-busd-usdc',
     name: 'BUSD-USDC LP',
-    token: 'BUSD-USDC LP',
+    token: 'BUSD-USDC SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0x384704557F73fBFAE6e9297FD1E6075FC340dbe5',
     tokenDecimals: 18,
@@ -313,7 +313,7 @@ export const moonriverPools = [
   {
     id: 'solar-eth-usdc',
     name: 'ETH-USDC LP',
-    token: 'ETH-USDC LP',
+    token: 'ETH-USDC SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0xA0D8DFB2CC9dFe6905eDd5B71c56BA92AD09A3dC',
     tokenDecimals: 18,
@@ -339,7 +339,7 @@ export const moonriverPools = [
   {
     id: 'solar-bnb-busd',
     name: 'BNB-BUSD LP',
-    token: 'BNB-BUSD LP',
+    token: 'BNB-BUSD SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0xfb1d0D6141Fc3305C63f189E39Cc2f2F7E58f4c2',
     tokenDecimals: 18,
@@ -365,7 +365,7 @@ export const moonriverPools = [
   {
     id: 'solar-wbtc-usdc',
     name: 'WBTC-USDC LP',
-    token: 'WBTC-USDC LP',
+    token: 'WBTC-USDC SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0x83d7a3fc841038E8c8F46e6192BBcCA8b19Ee4e7',
     tokenDecimals: 18,
@@ -391,7 +391,7 @@ export const moonriverPools = [
   {
     id: 'solar-solar-wmovr',
     name: 'SOLAR-WMOVR LP',
-    token: 'SOLAR-WMOVR LP',
+    token: 'SOLAR-WMOVR SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0x7eDA899b3522683636746a2f3a7814e6fFca75e1',
     tokenDecimals: 18,
@@ -417,7 +417,7 @@ export const moonriverPools = [
   {
     id: 'solar-usdt-usdc',
     name: 'USDT-USDC LP',
-    token: 'USDT-USDC LP',
+    token: 'USDT-USDC SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0x2a44696DDc050f14429bd8a4A05c750C6582bF3b',
     tokenDecimals: 18,
@@ -443,7 +443,7 @@ export const moonriverPools = [
   {
     id: 'solar-mimatic-usdc',
     name: 'miMatic-USDC LP',
-    token: 'miMatic-USDC LP',
+    token: 'miMatic-USDC SLP',
     tokenDescription: 'Solarbeam',
     tokenAddress: '0x55Ee073B38BF1069D5F1Ed0AA6858062bA42F5A9',
     tokenDecimals: 18,

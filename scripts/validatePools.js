@@ -36,6 +36,7 @@ const validatePools = async () => {
     const uniquePoolId = new Set();
     const uniqueEarnedToken = new Set();
     const uniqueEarnedTokenAddress = new Set();
+    const uniqueTokenName = new Set();
     const uniqueOracleId = new Set();
     const platformCounts = {};
     let activePools = 0;
@@ -48,10 +49,16 @@ const validatePools = async () => {
     pools = await populateOwners(chain, pools, web3);
 
     pools = override(pools);
-    pools.forEach(pool => {
+    for (let i = 0; i < pools.length; i++) {
+      const pool = pools[i];
       // Errors, should not proceed with build
       if (uniquePoolId.has(pool.id)) {
         console.error(`Error: ${pool.id} : Pool id duplicated: ${pool.id}`);
+        exitCode = 1;
+      }
+
+      if (uniqueTokenName.has(pool.token)) {
+        console.error(`Error: ${pool.id} : Pool token name duplicated: ${pool.token}`);
         exitCode = 1;
       }
 
@@ -74,7 +81,6 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool earnedTokenAddress not same as earnContractAddress: ${pool.earnedTokenAddress} != ${pool.earnContractAddress}`
         );
-        console.log('DUPA5');
         exitCode = 1;
       }
 
@@ -82,7 +88,6 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool tokenDescription missing - required for UI: vault card`
         );
-        console.log('DUPA4');
         exitCode = 1;
       }
 
@@ -90,7 +95,6 @@ const validatePools = async () => {
         console.error(
           `Error: ${pool.id} : Pool platform missing - required for UI: filter (Use 'Other' if necessary)`
         );
-        console.log('DUPA3');
         exitCode = 1;
       } else {
         platformCounts[pool.platform] = platformCounts.hasOwnProperty(pool.platform)
@@ -98,7 +102,12 @@ const validatePools = async () => {
           : 1;
       }
 
-      addressFields.forEach(field => {
+      for (
+        let addressFieldIndex = 0;
+        addressFieldIndex < addressFields.length;
+        addressFieldIndex++
+      ) {
+        const field = addressFields[addressFieldIndex];
         if (pool.hasOwnProperty(field) && !isValidChecksumAddress(pool[field])) {
           const maybeValid = maybeChecksumAddress(pool[field]);
           console.error(
@@ -106,10 +115,9 @@ const validatePools = async () => {
               maybeValid ? `\n\t${field}: '${maybeValid}',` : 'it is invalid'
             }`
           );
-          console.log('DUPA2');
           exitCode = 1;
         }
-      });
+      }
 
       if (pool.status === 'active') {
         activePools++;
@@ -119,6 +127,7 @@ const validatePools = async () => {
       uniqueEarnedToken.add(pool.earnedToken);
       uniqueEarnedTokenAddress.add(pool.earnedTokenAddress);
       uniqueOracleId.add(pool.oracleId);
+      uniqueTokenName.add(pool.token);
 
       const { keeper, strategyOwner, vaultOwner, mofiFeeRecipient } =
         addressBook[chain].platforms.mofi;
@@ -127,9 +136,8 @@ const validatePools = async () => {
       updates = isStratOwnerCorrect(pool, chain, strategyOwner, updates);
       updates = isVaultOwnerCorrect(pool, chain, vaultOwner, updates);
       updates = isMofiFeeRecipientCorrect(pool, chain, mofiFeeRecipient, updates);
-    });
+    }
     if (!isEmpty(updates)) {
-      console.log('DUPA1');
       exitCode = 1;
     }
 
