@@ -33,6 +33,16 @@ const PoolTitle = ({
         src={require(`images/${logo}`)}
       />
     );
+  } else if (assets.length === 1) {
+    avatar = (
+      <Avatar
+        alt={assets[0]}
+        variant="square"
+        className={classes.icon}
+        imgProps={{ style: { objectFit: 'contain' } }}
+        src={getSingleAssetSrc(assets[0]).default}
+      />
+    );
   } else {
     avatar = (
       <AvatarGroup className={`${classes.icon} MuiAvatar-root MuiAvatar-square`} spacing="small">
@@ -62,40 +72,6 @@ const PoolTitle = ({
         <Typography variant="body2" color="primary">
           {description}
         </Typography>
-        {/* <div style={{ display: 'flex', marginTop: '6px' }}>
-          {buyTokenUrl ? (
-            <a className={classes.url} href={buyTokenUrl} target="_blank" rel="noopener noreferrer">
-              <span>{name === 'WBNB' ? t('Wrap-BNB') : t('Buy-Token')}</span>
-              {'\u00A0\u00A0'}
-            </a>
-          ) : (
-            ''
-          )}
-          {addLiquidityUrl ? (
-            <a
-              className={classes.url}
-              href={addLiquidityUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>{t('Add-Liquidity')}</span>
-            </a>
-          ) : (
-            ''
-          )}
-          {removeLiquidityUrl ? (
-            <a
-              className={classes.url}
-              href={removeLiquidityUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>{t('Remove-Liquidity')}</span>
-            </a>
-          ) : (
-            ''
-          )}
-        </div> */}
       </div>
     </Grid>
   );
