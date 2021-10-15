@@ -18,9 +18,9 @@ pools.forEach(
     },
     i
   ) => {
-    if (!withdrawalFee) pools[i].withdrawalFee = '0%';
-    if (!depositFee) pools[i].depositFee = '0%';
-    if (!platformFee) pools[i].platformFee = '2%';
+    if (!withdrawalFee) pools[i].withdrawalFee = '0';
+    if (!depositFee) pools[i].depositFee = '0';
+    if (!platformFee) pools[i].platformFee = '2';
 
     tokens[token] = {
       symbol: token,

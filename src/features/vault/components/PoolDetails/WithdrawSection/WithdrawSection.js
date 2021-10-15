@@ -179,7 +179,7 @@ const WithdrawSection = ({ pool, index, sharesBalance }) => {
               sharesBalance.multipliedBy(new BigNumber(pool.pricePerFullShare)),
               pool.tokenDecimals
             ).toFormat(8)}{' '}
-            {pool.token}
+            {pool.name}
           </a>
         </div>
         <FormControl fullWidth variant="outlined">

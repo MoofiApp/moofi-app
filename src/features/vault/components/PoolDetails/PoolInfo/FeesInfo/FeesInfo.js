@@ -18,7 +18,7 @@ const FeesInfo = ({ pool }) => {
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        <Typography variant="body2" color="primary">
+        <Typography variant="body2" color={pool.depositFee > 0 ? 'error' : 'primary'}>
           {t('Pool-DepositFee', { depositFee: pool.depositFee })}
         </Typography>
       </Grid>

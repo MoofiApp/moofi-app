@@ -11,6 +11,7 @@ import CustomSlider from 'components/CustomSlider/CustomSlider';
 import { useConnectWallet } from 'features/home/redux/hooks';
 import { useFetchBalances, useFetchDeposit, useFetchApproval } from 'features/vault/redux/hooks';
 import { convertAmountToRawNumber } from 'features/helpers/bignumber';
+import DepositWarningDialog from '../DepositWarningDialog/DepositWarningDialog';
 import Button from 'components/CustomButtons/Button.js';
 import styles from './styles';
 
@@ -24,6 +25,7 @@ const DepositSection = ({ pool }) => {
   const { fetchApproval, fetchApprovalPending } = useFetchApproval();
   const { fetchDeposit, fetchDepositBnb, fetchDepositPending } = useFetchDeposit();
   const { tokens, tokenBalance, fetchBalances } = useFetchBalances();
+  const [showDepositFeeWarningDialog, setShowDepositFeeWarningDialog] = React.useState(null);
 
   const { eligibleTokens } = useMemo(() => {
     return {
@@ -141,14 +143,23 @@ const DepositSection = ({ pool }) => {
       input: tokenBalance(depositSettings.token.symbol).toFormat(),
     };
     setDepositSettings(newDepositSettings);
-    depositAssets({
+    const depositValue = {
       ...newDepositSettings,
       isAll: true,
-    });
+    };
+    if (pool.depositFee > 0) {
+      setShowDepositFeeWarningDialog(depositValue);
+    } else {
+      depositAssets(depositValue);
+    }
   };
 
   const handleDepositAmount = () => {
-    depositAssets(depositSettings);
+    if (pool.depositFee > 0) {
+      setShowDepositFeeWarningDialog(depositSettings);
+    } else {
+      depositAssets(depositSettings);
+    }
   };
 
   const depositAssets = deposit => {
@@ -207,6 +218,14 @@ const DepositSection = ({ pool }) => {
     return { display: display, content: cont };
   };
 
+  const handleDialogCancel = () => setShowDepositFeeWarningDialog(null);
+  const handleDialogConfirm = () => {
+    if (showDepositFeeWarningDialog) {
+      setShowDepositFeeWarningDialog(null);
+      depositAssets(showDepositFeeWarningDialog);
+    }
+  };
+
   const vaultState = getVaultState(pool.status, pool.depositsPaused);
 
   return (
@@ -218,7 +237,7 @@ const DepositSection = ({ pool }) => {
             {tokenBalance(depositSettings.token.symbol)
               .decimalPlaces(8, BigNumber.ROUND_DOWN)
               .toFormat()}{' '}
-            {depositSettings.token.symbol}
+            {depositSettings.token.name}
           </a>
         </div>
         <FormControl fullWidth variant="outlined" className={classes.numericInput}>
@@ -285,6 +304,12 @@ const DepositSection = ({ pool }) => {
           </div>
         )}
       </div>
+      <DepositWarningDialog
+        open={!!showDepositFeeWarningDialog}
+        depositFee={pool.depositFee}
+        onConfirm={handleDialogConfirm}
+        onCancel={handleDialogCancel}
+      />
     </Grid>
   );
 };
