@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import useFilterStorage from '../../home/hooks/useFiltersStorage';
 
-const DEFAULT = '-tvl';
+const DEFAULT = 'tvl';
 const KEY = 'sortedPools';
 
 const useSortedPools = (pools, apys, tokens) => {
