@@ -49,9 +49,8 @@ const VisiblePools = ({
         setPlatform={setPlatform}
         setVaultType={setVaultType}
         setAsset={setAsset}
-        setOrder={setOrder}
       />
-      <PoolsHeader className={classes.header} />
+      <PoolsHeader className={classes.header} order={order} setOrder={setOrder} />
       <div className={classes.scroller}>
         <InfiniteScroll dataLength={visiblePools.length} hasMore={true} next={fetchVisiblePools}>
           {visiblePools.map((pool, index) => (

@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import useFilterStorage from '../../home/hooks/useFiltersStorage';
 
-const DEFAULT = 'default';
+const DEFAULT = '-tvl';
 const KEY = 'sortedPools';
 
 const useSortedPools = (pools, apys, tokens) => {
   const { getStorage, setStorage } = useFilterStorage();
   const data = getStorage(KEY);
 
-  const [order, setOrder] = useState(data ? data : DEFAULT);
+  const [order, setOrder] = useState(data && data !== 'default' ? data : DEFAULT);
 
   useEffect(() => {
     setStorage(KEY, order);
@@ -17,10 +17,22 @@ const useSortedPools = (pools, apys, tokens) => {
   let sortedPools = pools;
   switch (order) {
     case 'apy':
-      sortedPools = handleApy(pools, apys);
+      sortedPools = handleApy(pools, apys, true);
+      break;
+    case '-apy':
+      sortedPools = handleApy(pools, apys, false);
       break;
     case 'tvl':
-      sortedPools = handleTvl(pools);
+      sortedPools = handleTvl(pools, true);
+      break;
+    case '-tvl':
+      sortedPools = handleTvl(pools, false);
+      break;
+    case 'name':
+      sortedPools = handleNames(pools, true);
+      break;
+    case '-name':
+      sortedPools = handleNames(pools, false);
       break;
     default:
       break;
@@ -31,27 +43,43 @@ const useSortedPools = (pools, apys, tokens) => {
   return { sortedPools, order, setOrder };
 };
 
-const handleApy = (pools, apys) => {
+const handleApy = (pools, apys, asc) => {
   const newPools = [...pools];
   return newPools.sort((a, b) => {
     if (apys[a.id] === apys[b.id]) {
       return 0;
     } else if (apys[a.id] === undefined) {
-      return 1;
+      return asc ? 1 : -1;
     } else if (apys[b.id] === undefined) {
-      return -1;
+      return asc ? -1 : 1;
     }
 
-    return apys[b.id].totalApy - apys[a.id].totalApy;
+    if (asc) {
+      return apys[b.id].totalApy - apys[a.id].totalApy;
+    } else {
+      return apys[a.id].totalApy - apys[b.id].totalApy;
+    }
   });
 };
 
-const handleTvl = pools => {
+const handleTvl = (pools, asc) => {
   const newPools = [...pools];
   return newPools.sort((a, b) => {
     const aPrice = a.oraclePrice;
     const bPrice = b.oraclePrice;
-    return b.tvl * bPrice - a.tvl * aPrice;
+    if (asc) {
+      return b.tvl * bPrice - a.tvl * aPrice;
+    } else {
+      return a.tvl * aPrice - b.tvl * bPrice;
+    }
+  });
+};
+
+const handleNames = (pools, asc) => {
+  const newPools = [...pools];
+  return newPools.sort((a, b) => {
+    const res = ('' + a.name).localeCompare(b.name);
+    return asc ? res : -res;
   });
 };
 

@@ -162,11 +162,12 @@
   "Dialog-Cancel": "Cancel",
   "Dialog-Confirm": "Yes, proceed",
   "Header-Vaults": "Vaults",
-  "Header-Ballance": "Ballance",
-  "Header-Ballance-Small": "Bal",
+  "Header-Balance": "Balance",
+  "Header-Balance-Small": "Bal",
   "Header-Deposited": "Deposited",
   "Header-Deposited-Small": "Dep",
   "Header-APY": "APY",
   "Header-Daily": "Daily",
-  "Header-TVL": "TVL"
+  "Header-TVL": "TVL",
+  "Header-OrderBy": "Order by"
 }

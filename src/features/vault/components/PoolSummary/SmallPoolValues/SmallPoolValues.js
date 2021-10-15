@@ -32,7 +32,7 @@ const SmallPoolValues = ({
     <Grid container className={classes.container}>
       <Grid item xs={12} className={classes.content}>
         <Typography variant="body2" color="primary">
-          {t('Header-Ballance-Small')}
+          {t('Header-Balance-Small')}
         </Typography>
         <LabeledStat
           className={classes.value}

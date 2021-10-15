@@ -23,13 +23,13 @@ const Filters = ({
   setPlatform,
   setVaultType,
   setAsset,
-  setOrder,
 }) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
   const handlePlatformChange = useCallback(value => setPlatform(value), [setPlatform]);
   const handleAssetChange = useCallback(value => setAsset(value), [setAsset]);
+  const handleVaultTypeChange = useCallback(value => setVaultType(value), [setVaultType]);
 
   useEffect(() => {
     if ((!asset || !assets.find(value => value === asset)) && asset !== 'All') {
@@ -43,7 +43,7 @@ const Filters = ({
     }
   }, [platform, setPlatform]);
 
-  const { platformItems, tokenItems } = React.useMemo(
+  const { platformItems, tokenItems, vaultTypes } = React.useMemo(
     () => ({
       platformItems: prependAll(
         R.map(p => ({ value: p, name: p }), platforms),
@@ -51,6 +51,14 @@ const Filters = ({
       ),
       tokenItems: prependAll(
         R.map(a => ({ value: a, name: a }), assets),
+        t
+      ),
+      vaultTypes: prependAll(
+        [
+          { value: 'Singles', name: t('Filters-Type-SingleAssets') },
+          { value: 'StableLPs', name: t('Filters-Type-StableLPs') },
+          { value: 'Stables', name: t('Filters-Type-Stables') },
+        ],
         t
       ),
     }),
@@ -76,6 +84,12 @@ const Filters = ({
         items={platformItems}
         value={platform}
         onChange={handlePlatformChange}
+      />
+      <FilterSelect
+        label={t('Filters-Vault-Type')}
+        items={vaultTypes}
+        value={vaultType}
+        onChange={handleVaultTypeChange}
       />
       <FilterSelect
         label={t('Filters-Asset')}

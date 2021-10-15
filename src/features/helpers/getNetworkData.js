@@ -51,7 +51,7 @@ export const getNetworkLaunchpools = (networkId = appNetworkId) => {
 export const getNetworkStables = () => {
   switch (window.REACT_APP_NETWORK_ID) {
     case 1285:
-      return ['USDC', 'BUSD', 'USDT', 'DAI'];
+      return ['USDC', 'BUSD', 'USDT', 'DAI', 'miMatic'];
     default:
       return [];
   }
