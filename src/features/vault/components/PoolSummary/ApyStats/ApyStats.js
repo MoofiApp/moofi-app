@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
+import InfoIcon from '@material-ui/icons/Info';
 import styles from './styles';
 import getApyStats from './getApyStats';
 import { useTranslation } from 'react-i18next';
@@ -92,9 +94,11 @@ const ApyStats = ({ apy, isLoading = false, itemClasses, itemInnerClasses }) => 
       <Grid item md={1} className={itemClasses}>
         <LabeledStatWithTooltip
           value={
-            <>
-              {formatted.totalApy} {showApyTooltip && <i className="fas fa-info-circle" />}
-            </>
+            <Box display="flex" alignItems="center">
+              {formatted.totalApy}
+              &nbsp;
+              {showApyTooltip && <InfoIcon color="primary" fontSize="small" />}
+            </Box>
           }
           tooltip={showApyTooltip ? <YearlyBreakdownTooltip rates={formatted} /> : null}
           boosted={''}
@@ -105,9 +109,11 @@ const ApyStats = ({ apy, isLoading = false, itemClasses, itemInnerClasses }) => 
       <Grid item md={1} className={itemClasses}>
         <LabeledStatWithTooltip
           value={
-            <>
-              {formatted.totalDaily} {showDailyTooltip && <i className="fas fa-info-circle" />}
-            </>
+            <Box display="flex" alignItems="center">
+              {formatted.totalDaily}
+              &nbsp;
+              {showDailyTooltip && <InfoIcon color="primary" fontSize="small" />}
+            </Box>
           }
           tooltip={showDailyTooltip ? <DailyBreakdownTooltip rates={formatted} /> : null}
           boosted={''}

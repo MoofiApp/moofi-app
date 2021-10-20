@@ -159,6 +159,8 @@
   "Pool-BuyToken": "Buy {{tokenName}}",
   "Pool-DepositWarningTitle": "Deposit fee warning",
   "Pool-DepositWarningText": "Platform for this vault is taking {{depositFee}}% of tokens upon depositing. Are you aware of it and do you still want to proceed?",
+  "Pool-DefaultInfoText": "<p>With deposit, asset is being added to platform farm pool.</p><p>Rewards from that farm are being autocompounded by selling farm reward token, buying underlying token and adding again to farm. </p>That way your token amount is increasing.",
+  "Pool-Neku-AdditionalInfoText": "<p>With deposit, asset is being supplied to lending Neku platform.</p><p>Resulting nToken (<a href=\"https://compound.finance/docs/ctokens\" target=\"_blank\">about cTokens</a>) are being added to platform farm pool. </p><p>Rewards from that farm are being autocompounded by selling farm reward token, buying underlying token, adding to lending platform and adding again to farm.</p><p>That way your token amount is increasing.</p>",
   "Dialog-Cancel": "Cancel",
   "Dialog-Confirm": "Yes, proceed",
   "Header-Vaults": "Vaults",

@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { useTranslation } from 'react-i18next';
 
@@ -8,7 +9,7 @@ const FeesInfo = ({ pool }) => {
   return (
     <Grid container item xs={6} md={12}>
       <Grid item xs={12}>
-        <Typography variant="h6" color="primary">
+        <Typography variant="h6" color="primary" style={{ marginBottom: 4 }}>
           {t('Pool-Fees')}
         </Typography>
       </Grid>

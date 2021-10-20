@@ -94,6 +94,8 @@ const PoolSummary = ({
           removeLiquidityUrl={pool.removeLiquidityUrl}
           buyTokenUrl={pool.buyTokenUrl}
           assets={pool.assets}
+          platformUrl={pool.platformUrl}
+          tags={pool.tags}
         />
       </Grid>
       <Hidden smDown>

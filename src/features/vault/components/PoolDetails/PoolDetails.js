@@ -130,6 +130,8 @@ const PoolDetails = ({ vaultId }) => {
               removeLiquidityUrl={pool.removeLiquidityUrl}
               buyTokenUrl={pool.buyTokenUrl}
               assets={pool.assets}
+              platformUrl={pool.platformUrl}
+              tags={pool.tags}
             />
           </Grid>
           <Grid item xs={6} className={`${classes.item} ${classes.itemBalances}`}>
