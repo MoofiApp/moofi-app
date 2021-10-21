@@ -7,7 +7,7 @@ import styles from './styles';
 import TVLInfo from 'components/TVLInfo/TVLInfo';
 import { Divider, Typography } from '@material-ui/core';
 import AddressButton from '../AddressButton/AddressButton';
-import MoonfiImage from '../../images/moonfi.png';
+import MoonfiImage from '../../images/moonfi.svg';
 
 const useStyles = makeStyles(styles);
 
