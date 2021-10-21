@@ -1,4 +1,4 @@
-# MOOFI Finance (\$MOFI)
+# MOONFI Finance (\$MOFI)
 
 ## Overview
 
@@ -20,10 +20,6 @@ yarn start
 ```
 
 The app will be running at http://localhost:3000/
-
-## Contribute
-
-Moofi.app exists thanks to its contributors. There are many ways you can participate and help build high quality software. Check out the [contribution guide](CONTRIBUTING.md)!
 
 ## License
 

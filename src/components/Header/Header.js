@@ -7,6 +7,7 @@ import styles from './styles';
 import TVLInfo from 'components/TVLInfo/TVLInfo';
 import { Divider, Typography } from '@material-ui/core';
 import AddressButton from '../AddressButton/AddressButton';
+import MoonfiImage from '../../images/moonfi.png';
 
 const useStyles = makeStyles(styles);
 
@@ -17,7 +18,7 @@ const Header = ({ links, isNightMode, setNightMode }) => {
     <>
       <AppBar className={`${classes.appBar} ${classes.dark}`} position="relative">
         <Toolbar className={classes.container} variant="dense">
-          <Typography variant="h5">MOFI</Typography>
+          <img src={MoonfiImage} height={44} alt="Moonfi" />
           <Typography variant="body2" color="textSecondary" className={classes.beta}>
             Beta
           </Typography>
