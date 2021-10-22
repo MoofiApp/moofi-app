@@ -235,9 +235,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['WMOVR', 'USDC'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -262,9 +262,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['SOLAR', 'USDC'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -289,9 +289,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['DAI', 'USDC'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -316,9 +316,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['BUSD', 'USDC'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -343,9 +343,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['ETH', 'USDC'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -370,9 +370,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['BNB', 'BUSD'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
+      'https://app.solarbeam.io/exchange/add/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
+      'https://app.solarbeam.io/exchange/add/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -397,9 +397,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['WBTC', 'USDC'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -424,9 +424,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['SOLAR', 'WMOVR'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0x98878B06940aE243284CA214f92Bb71a2b032B8A',
+      'https://app.solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0x98878B06940aE243284CA214f92Bb71a2b032B8A',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0x98878B06940aE243284CA214f92Bb71a2b032B8A',
+      'https://app.solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0x98878B06940aE243284CA214f92Bb71a2b032B8A',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -451,9 +451,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['USDT', 'USDC'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0xB44a9B6905aF7c801311e8F4E76932ee959c663C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0xB44a9B6905aF7c801311e8F4E76932ee959c663C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0xB44a9B6905aF7c801311e8F4E76932ee959c663C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0xB44a9B6905aF7c801311e8F4E76932ee959c663C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -478,9 +478,9 @@ export const moonriverPools = [
     platform: 'Solarbeam',
     assets: ['miMatic', 'USDC'],
     addLiquidityUrl:
-      'https://solarbeam.io/exchange/add/0x7f5a79576620C046a293F54FFCdbd8f2468174F1/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x7f5a79576620C046a293F54FFCdbd8f2468174F1/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
-      'https://solarbeam.io/exchange/add/0x7f5a79576620C046a293F54FFCdbd8f2468174F1/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+      'https://app.solarbeam.io/exchange/add/0x7f5a79576620C046a293F54FFCdbd8f2468174F1/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     harvestFrequency: 86400,
     platformUrl: 'https://solarbeam.io',
   },
@@ -694,5 +694,59 @@ export const moonriverPools = [
     harvestFrequency: 86400,
     additionalInfoText: 'Pool-Neku-AdditionalInfoText',
     tags: ['Lending'],
+  },
+  {
+    id: 'huckle-usdc.m-usdt.m',
+    name: 'USDC.m-USDT.m LP',
+    token: 'USDC.m-USDT.m MLP',
+    tokenDescription: 'Huckleberry',
+    tokenAddress: '0xce634Ae7191aB885Fb4ce8d1ed58f80EA988D52a',
+    tokenDecimals: 18,
+    tokenDescriptionUrl: '#',
+    earnedToken: 'miiHuckleUSDC.m-USDT.m',
+    earnedTokenAddress: '0x4e62d7f47bdF4200795BbF9F05795d0473e4929C',
+    earnContractAddress: '0x4e62d7f47bdF4200795BbF9F05795d0473e4929C',
+    pricePerFullShare: 1,
+    tvl: 0,
+    oracle: 'lps',
+    oracleId: 'huckle-usdc.m-usdt.m',
+    oraclePrice: 0,
+    depositsPaused: false,
+    status: 'active',
+    platform: 'Huckleberry',
+    assets: ['USDC.m', 'USDT.m'],
+    addLiquidityUrl:
+      'https://www.huckleberry.finance/#/add/0x748134b5F553F2bcBD78c6826De99a70274bDEb3/0xE936CAA7f6d9F5C9e907111FCAf7c351c184CDA7/',
+    buyTokenUrl:
+      'https://www.huckleberry.finance/swap?inputCurrency=0x748134b5F553F2bcBD78c6826De99a70274bDEb3&outputCurrency=0xE936CAA7f6d9F5C9e907111FCAf7c351c184CDA7',
+    platformUrl: 'https://www.huckleberry.finance/',
+    harvestFrequency: 86400,
+  },
+  {
+    id: 'huckle-wmovr-finn',
+    name: 'WMOVR-FINN LP',
+    token: 'WMOVR-FINN MLP',
+    tokenDescription: 'Huckleberry',
+    tokenAddress: '0xbBe2f34367972Cb37ae8dea849aE168834440685',
+    tokenDecimals: 18,
+    tokenDescriptionUrl: '#',
+    earnedToken: 'miiHuckleWMOVR-FINN',
+    earnedTokenAddress: '0xF0e39391F60C1d721efc1D47Fef9c44551087f3c',
+    earnContractAddress: '0xF0e39391F60C1d721efc1D47Fef9c44551087f3c',
+    pricePerFullShare: 1,
+    tvl: 0,
+    oracle: 'lps',
+    oracleId: 'huckle-wmovr-finn',
+    oraclePrice: 0,
+    depositsPaused: false,
+    status: 'active',
+    platform: 'Huckleberry',
+    assets: ['WMOVR', 'FINN'],
+    addLiquidityUrl:
+      'https://www.huckleberry.finance/#/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756/',
+    buyTokenUrl:
+      'https://www.huckleberry.finance/swap?inputCurrency=0x98878B06940aE243284CA214f92Bb71a2b032B8A&outputCurrency=0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756',
+    platformUrl: 'https://www.huckleberry.finance/',
+    harvestFrequency: 86400,
   },
 ];
