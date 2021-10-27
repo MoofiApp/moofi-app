@@ -129,11 +129,10 @@ const validatePools = async () => {
       uniqueOracleId.add(pool.oracleId);
       uniqueTokenName.add(pool.token);
 
-      const { keeper, strategyOwner, vaultOwner, mofiFeeRecipient } =
-        addressBook[chain].platforms.mofi;
+      const { keeper, vaultOwner, mofiFeeRecipient } = addressBook[chain].platforms.mofi;
 
       updates = isKeeperCorrect(pool, chain, keeper, updates);
-      updates = isStratOwnerCorrect(pool, chain, strategyOwner, updates);
+      // updates = isStratOwnerCorrect(pool, chain, strategyOwner, updates);
       updates = isVaultOwnerCorrect(pool, chain, vaultOwner, updates);
       updates = isMofiFeeRecipientCorrect(pool, chain, mofiFeeRecipient, updates);
     }

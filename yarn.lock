@@ -9789,9 +9789,9 @@ moment@^2.29.1:
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
 
 moofi-addressbook@^0.3.22:
-  version "0.3.22"
-  resolved "https://registry.yarnpkg.com/moofi-addressbook/-/moofi-addressbook-0.3.22.tgz#dff2ff60307607e975988ca51e686147a5a5a466"
-  integrity sha512-M2byFfcRKpijlBiTFTFwaM/oOpCgLJLWlt5rMfN4QShs/xKHm9w7go+tu0I4Q/Yx6j1L1iJLhW/8f/vJHssadw==
+  version "0.3.31"
+  resolved "https://registry.yarnpkg.com/moofi-addressbook/-/moofi-addressbook-0.3.31.tgz#6b068423ff418c3bc4c0a4ad5937985e8d7c8551"
+  integrity sha512-C5eijaCz9sruxMu4cQ3NaBFXl6xUcuxMg4sV3InY2zMaW0rVsmHYyHaE071TtYSasvYyS97N2ob70vggxOGW+A==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
