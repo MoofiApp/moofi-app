@@ -500,8 +500,9 @@ export const moonriverPools = [
     oracle: 'tokens',
     oracleId: 'WMOVR',
     oraclePrice: 0,
-    depositsPaused: false,
-    status: 'active',
+    depositsPaused: true,
+    status: 'eol',
+    retireReason: 'rewards',
     platform: 'Moonfarm',
     assets: ['WMOVR'],
     buyTokenUrl:

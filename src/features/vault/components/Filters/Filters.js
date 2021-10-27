@@ -67,18 +67,28 @@ const Filters = ({
 
   return (
     <div className={classes.container}>
-      <FormControlLabel
-        className={classes.hideZeroVault}
-        control={
-          <Checkbox
-            checked={filters.hideZeroVaultBalances}
-            onChange={() => toggleFilter('hideZeroVaultBalances')}
-            color="primary"
-          />
-        }
-        // TODO: translate labels
-        label={t('Hide-Zero-Vault-Balances')}
-      />
+      <div className={classes.checkboxesContainer}>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={filters.hideZeroVaultBalances}
+              onChange={() => toggleFilter('hideZeroVaultBalances')}
+              color="primary"
+            />
+          }
+          label={t('Hide-Zero-Vault-Balances')}
+        />
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={!filters.hideDecomissioned}
+              onChange={() => toggleFilter('hideDecomissioned')}
+              color="primary"
+            />
+          }
+          label={t('Retired-Vaults')}
+        />
+      </div>
       <FilterSelect
         label={t('Filters-Platform')}
         items={platformItems}
