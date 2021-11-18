@@ -23,7 +23,7 @@ export const moonriverPools = [
       'https://swap.moonswap.in/#/add/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
       'https://swap.moonswap.in/swap?inputCurrency=0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818&outputCurrency=0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: `https://swap.moonswap.in/`,
   },
   {
@@ -50,7 +50,7 @@ export const moonriverPools = [
       'https://swap.moonswap.in/#/add/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
     buyTokenUrl:
       'https://swap.moonswap.in/swap?inputCurrency=0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c&outputCurrency=0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: `https://swap.moonswap.in/`,
   },
   {
@@ -77,7 +77,7 @@ export const moonriverPools = [
       'https://swap.moonswap.in/#/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
       'https://swap.moonswap.in/swap?inputCurrency=0x98878B06940aE243284CA214f92Bb71a2b032B8A&outputCurrency=0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: `https://swap.moonswap.in/`,
   },
   {
@@ -104,7 +104,7 @@ export const moonriverPools = [
       'https://swap.moonswap.in/#/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0xB497c3E9D27Ba6b1fea9F1b941d8C79E66cfC9d6',
     buyTokenUrl:
       'https://swap.moonswap.in/swap?inputCurrency=0x98878B06940aE243284CA214f92Bb71a2b032B8A&outputCurrency=0xB497c3E9D27Ba6b1fea9F1b941d8C79E66cfC9d6',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: `https://swap.moonswap.in/`,
   },
   {
@@ -131,7 +131,7 @@ export const moonriverPools = [
       'https://app.solarbeam.io/exchange/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
       'https://app.solarbeam.io/exchange/add/0x98878B06940aE243284CA214f92Bb71a2b032B8A/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: 'https://solarbeam.io',
   },
   {
@@ -158,7 +158,7 @@ export const moonriverPools = [
       'https://app.solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
       'https://app.solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: 'https://solarbeam.io',
   },
   {
@@ -185,7 +185,7 @@ export const moonriverPools = [
       'https://app.solarbeam.io/exchange/add/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     buyTokenUrl:
       'https://app.solarbeam.io/exchange/add/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: 'https://solarbeam.io',
   },
   {
@@ -212,7 +212,7 @@ export const moonriverPools = [
       'https://app.solarbeam.io/exchange/add/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
     buyTokenUrl:
       'https://app.solarbeam.io/exchange/add/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c/0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: 'https://solarbeam.io',
   },
   {
@@ -239,34 +239,7 @@ export const moonriverPools = [
       'https://app.solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0x98878B06940aE243284CA214f92Bb71a2b032B8A',
     buyTokenUrl:
       'https://app.solarbeam.io/exchange/add/0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B/0x98878B06940aE243284CA214f92Bb71a2b032B8A',
-    harvestFrequency: 86400,
-    platformUrl: 'https://solarbeam.io',
-  },
-  {
-    id: 'solar-usdt-usdc',
-    name: 'USDT-USDC LP',
-    token: 'USDT-USDC SLP',
-    tokenDescription: 'Solarbeam',
-    tokenAddress: '0x2a44696DDc050f14429bd8a4A05c750C6582bF3b',
-    tokenDecimals: 18,
-    tokenDescriptionUrl: '#',
-    earnedToken: 'miiSolarUSDT-USDC',
-    earnedTokenAddress: '0xd7f4FBF5BE1Da979f7c898d4D760ccA659B3238F',
-    earnContractAddress: '0xd7f4FBF5BE1Da979f7c898d4D760ccA659B3238F',
-    pricePerFullShare: 1,
-    tvl: 0,
-    oracle: 'lps',
-    oracleId: 'solar-usdt-usdc',
-    oraclePrice: 0,
-    depositsPaused: false,
-    status: 'active',
-    platform: 'Solarbeam',
-    assets: ['USDT', 'USDC'],
-    addLiquidityUrl:
-      'https://app.solarbeam.io/exchange/add/0xB44a9B6905aF7c801311e8F4E76932ee959c663C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
-    buyTokenUrl:
-      'https://app.solarbeam.io/exchange/add/0xB44a9B6905aF7c801311e8F4E76932ee959c663C/0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     platformUrl: 'https://solarbeam.io',
   },
   {
@@ -293,7 +266,7 @@ export const moonriverPools = [
     buyTokenUrl:
       'https://swap.moonswap.in/#/swap?outputCurrency=0x98878B06940aE243284CA214f92Bb71a2b032B8A',
     platformUrl: 'https://swap.moonswap.in/',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
   },
   {
     id: 'solar-wmovr',
@@ -318,7 +291,7 @@ export const moonriverPools = [
     buyTokenUrl:
       'https://app.solarbeam.io/exchange/swap?outputCurrency=0x98878B06940aE243284CA214f92Bb71a2b032B8A',
     platformUrl: 'https://solarbeam.io',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     depositFee: 2.5,
   },
   {
@@ -344,7 +317,7 @@ export const moonriverPools = [
     buyTokenUrl:
       'https://app.solarbeam.io/exchange/swap?outputCurrency=0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844',
     platformUrl: 'https://www.neku.io/',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     additionalInfoText: 'Pool-Neku-AdditionalInfoText',
     tags: ['Lending'],
   },
@@ -371,7 +344,7 @@ export const moonriverPools = [
     buyTokenUrl:
       'https://app.solarbeam.io/exchange/swap?outputCurrency=0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     platformUrl: 'https://www.neku.io/',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
     additionalInfoText: 'Pool-Neku-AdditionalInfoText',
     tags: ['Lending'],
   },
@@ -400,7 +373,7 @@ export const moonriverPools = [
     buyTokenUrl:
       'https://www.huckleberry.finance/swap?inputCurrency=0x748134b5F553F2bcBD78c6826De99a70274bDEb3&outputCurrency=0xE936CAA7f6d9F5C9e907111FCAf7c351c184CDA7',
     platformUrl: 'https://www.huckleberry.finance/',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
   },
   {
     id: 'huckle-wmovr-finn',
@@ -427,6 +400,6 @@ export const moonriverPools = [
     buyTokenUrl:
       'https://www.huckleberry.finance/swap?inputCurrency=0x98878B06940aE243284CA214f92Bb71a2b032B8A&outputCurrency=0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756',
     platformUrl: 'https://www.huckleberry.finance/',
-    harvestFrequency: 86400,
+    harvestFrequency: 172800,
   },
 ];
