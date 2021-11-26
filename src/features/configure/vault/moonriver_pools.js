@@ -16,7 +16,7 @@ export const moonriverPools = [
     oracleId: 'moonfarm-busd-usdc',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Moonfarm',
     assets: ['BUSD', 'USDC'],
     addLiquidityUrl:
@@ -43,7 +43,7 @@ export const moonriverPools = [
     oracleId: 'moonfarm-bnb-busd',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Moonfarm',
     assets: ['BNB', 'BUSD'],
     addLiquidityUrl:
@@ -70,7 +70,7 @@ export const moonriverPools = [
     oracleId: 'moonfarm-wmovr-usdc',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Moonfarm',
     assets: ['WMOVR', 'USDC'],
     addLiquidityUrl:
@@ -97,7 +97,7 @@ export const moonriverPools = [
     oracleId: 'moonfarm-wmovr-moon',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Moonfarm',
     assets: ['WMOVR', 'MOON'],
     addLiquidityUrl:
@@ -284,7 +284,7 @@ export const moonriverPools = [
     oracleId: 'DAI',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Neku',
     assets: ['DAI'],
     buyTokenUrl:
@@ -311,7 +311,7 @@ export const moonriverPools = [
     oracleId: 'USDC',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Neku',
     assets: ['USDC'],
     buyTokenUrl:
