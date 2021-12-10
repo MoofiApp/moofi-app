@@ -178,7 +178,7 @@ export const moonriverPools = [
     oracleId: 'solar-busd-usdc',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Solarbeam',
     assets: ['BUSD', 'USDC'],
     addLiquidityUrl:
@@ -205,7 +205,7 @@ export const moonriverPools = [
     oracleId: 'solar-bnb-busd',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Solarbeam',
     assets: ['BNB', 'BUSD'],
     addLiquidityUrl:
@@ -258,7 +258,7 @@ export const moonriverPools = [
     oracleId: 'WMOVR',
     oraclePrice: 0,
     depositsPaused: false,
-    status: 'active',
+    status: 'eol',
     platform: 'Solarbeam',
     assets: ['WMOVR'],
     buyTokenUrl:
